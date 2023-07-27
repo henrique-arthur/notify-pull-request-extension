@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Minha Extensão",
+  "version": "1.0",
+  "description": "Uma descrição da sua extensão",
+  "permissions": [
+    "activeTab",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://github.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Minha Extensão",
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://github.com/*/pull/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
